@@ -4,6 +4,10 @@
 
 ## Motivation
 
+This library is created for those, who find the existing solutions too heavy or too cluttered with unnecessary abstractions.
+
+It leverages the core JavaScript Data Structures and starndard language features and tailored to be used with TypeScript(but it's not a hard requirement).
+
 ## Usage
 
 ### TypeScript
@@ -48,7 +52,7 @@ function update(state: State = null, action: Action) : [ State, Command ] | [ St
        return [ { error: payload } ]
       
     default:
-      return  [ state ];
+      return  [ state ]
   }
 }
 ```
@@ -56,13 +60,13 @@ function update(state: State = null, action: Action) : [ State, Command ] | [ St
 `ToDoViewer.ts`
 ```typescript
 const Viewer = ({ state, Fetch }) => (
-  <>
+  <React.Fragment>
     { state.error && <p>We have an error!</p> }
     { state.title && <p>{ state.title }</p> }
     <button onClick={() => Fetch(1)}>First</button>
     <button onClick={() => Fetch(2)}>Second</button>
     <button onClick={() => Fetch(3)}>Third</button>
-  </>
+  </React.Fragment>
 )
 ```
 
@@ -74,3 +78,5 @@ const Viewer = ({ state, Fetch }) => (
 
 - [redux-loop](https://github.com/redux-loop/redux-loop)
 - [redux-observable](https://redux-observable.js.org/)
+- [redux-saga](https://github.com/redux-saga/redux-saga)
+- [redux-thunk](https://github.com/reduxjs/redux-thunk)
