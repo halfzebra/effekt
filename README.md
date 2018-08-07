@@ -72,7 +72,7 @@ const Viewer = ({ state, Fetch }) => (
 
 ### JavaScript
 
-[eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise) is a must.
+[eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise) with [`"catch-or-return"`](https://github.com/xjamundx/eslint-plugin-promise/blob/master/docs/rules/catch-or-return.md) rule enabled is a must.
 
 ## Acknowledgements
 
