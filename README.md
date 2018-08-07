@@ -2,36 +2,48 @@
 
 [Redux](https://redux.js.org/) enhancer for state-driven I/O.
 
-```js
-const t = (state, command) => ({ state, command })
+```typescript
+type Fetch = { type: 'Fetch', payload: number }
 
-function update(state, action) {
+type Fail = { type: 'Fail', payload: string }
+
+type Success = { type: 'Success', payload: string }
+
+type Action = Fetch | Fail | Success
+
+type State = { error: string } | { title: string } | null;
+
+const Success = (payload: string): Success => ({ type: 'Success', payload })
+
+type Command = () => Promise<Fail | Success>
+
+function update(state: State = null, action: Action) : [ State, Command ] | [ State ] {
   switch (action.type) {
     case 'Fetch':
-      return t(
+
+      return [
         state,
-        () =>
-          fetch(`https://jsonplaceholder.typicode.com/todos/${action.payload}`)
+        () => fetch(`https://jsonplaceholder.typicode.com/todos/${action.payload}`)
             .then(response => response.json())
-            .then(payload => ({ type: 'Success', payload }))
-            .catch(error => ({ type: 'Fail', error }))
-      );
+            .then(({ title }) => title)
+            .then(Success)
+      ];
       
     case 'Success':
-       return t({ todo: action.payload })
+       return [ { title: action.payload } ]
       
     case 'Fail':
-       return t({ error: action.error })
+       return [ { error: action.payload } ]
       
     default:
-      return state;
+      return  [ state ];
   }
 }
 
 const Viewer = ({ state, fetchToDo }) => (
   <>
     { state.error && <p>We have an error!</p> }
-    { state.todo && <p>{ state.todo.title }</p> }
+    { state.title && <p>{ state.title }</p> }
     <button onClick={() => fetchToDo(1)}>First</button>
     <button onClick={() => fetchToDo(2)}>Second</button>
     <button onClick={() => fetchToDo(3)}>Third</button>
