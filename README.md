@@ -59,9 +59,9 @@ type Success = { type: 'Success', payload: string }
 
 type Action = Fetch | Fail | Success
 
-const Fetch = (payload: number): Success => ({ type: 'Fetch', payload })
+const Fetch = (payload: number): Fetch => ({ type: 'Fetch', payload })
 const Success = (payload: string): Success => ({ type: 'Success', payload })
-const Fail = (payload: string): Success => ({ type: 'Fail', payload })
+const Fail = (payload: string): Fail => ({ type: 'Fail', payload })
 
 // State machine definition.
 type State = { error: string } | { title: string } | null;
