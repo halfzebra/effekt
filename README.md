@@ -6,9 +6,46 @@
 
 This library is created for those, who find the existing solutions too heavy or too cluttered with unnecessary abstractions.
 
-It leverages the core JavaScript Data Structures and starndard language features and tailored to be used with TypeScript(but it's not a hard requirement).
+It leverages the core JavaScript Data Structures and starndard language features and tailored to be used with [TypeScript](#typescript)(but it's not a hard requirement).
 
 ## Usage
+
+### JavaScript
+
+`toDoViewerUpdate.js`
+```typescript
+
+// Actions.
+const Fetch = payload => ({ type: 'Fetch', payload })
+const Success = payload => ({ type: 'Success', payload })
+const Fail = (payload: string): Success => ({ type: 'Fail', payload })
+
+function update(state, action) {
+  const { type, payload } = action;
+  switch (type) {
+    case 'Fetch':
+      return [
+        state,
+        () => fetch(`https://jsonplaceholder.typicode.com/todos/${payload}`)
+            .then(response => response.json())
+            .then(({ title }) => title)
+            .then(Success)
+            .catch(({ message}) => Fail(message))
+      ];
+      
+    case 'Success':
+       return [ { title: payload } ]
+      
+    case 'Fail':
+       return [ { error: payload } ]
+      
+    default:
+      return  [ state ]
+  }
+}
+```
+
+[eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise) with [`"catch-or-return"`](https://github.com/xjamundx/eslint-plugin-promise/blob/master/docs/rules/catch-or-return.md) and [`"always-return"`](https://github.com/xjamundx/eslint-plugin-promise/blob/master/docs/rules/always-return.md) rules are very helpful.
 
 ### TypeScript
 
@@ -69,10 +106,6 @@ const Viewer = ({ state, Fetch }) => (
   </React.Fragment>
 )
 ```
-
-### JavaScript
-
-[eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise) with [`"catch-or-return"`](https://github.com/xjamundx/eslint-plugin-promise/blob/master/docs/rules/catch-or-return.md) and [`"always-return"`](https://github.com/xjamundx/eslint-plugin-promise/blob/master/docs/rules/always-return.md) rules are very helpful.
 
 ## Acknowledgements
 
