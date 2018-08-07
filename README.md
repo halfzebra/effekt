@@ -4,7 +4,7 @@
 
 ## Motivation
 
-This library is created for those, who find the existing solutions too heavy or too cluttered with unnecessary abstractions.
+This library is created for those, who find the existing solutions for I/O in Redux ecosystem are too heavy or too cluttered with unnecessary abstractions.
 
 It leverages the core JavaScript Data Structures and starndard language features and tailored to be used with [TypeScript](#typescript)(but it's not a hard requirement).
 
@@ -113,3 +113,4 @@ const Viewer = ({ state, Fetch }) => (
 - [redux-observable](https://redux-observable.js.org/)
 - [redux-saga](https://github.com/redux-saga/redux-saga)
 - [redux-thunk](https://github.com/reduxjs/redux-thunk)
+- [react-redux-typescript-guide](https://github.com/piotrwitek/react-redux-typescript-guide)
