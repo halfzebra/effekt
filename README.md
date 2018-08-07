@@ -26,7 +26,8 @@ function update(state, action) {
     case 'Fetch':
       return [
         state,
-        () => fetch(`https://jsonplaceholder.typicode.com/todos/${payload}`)
+        () =>
+          fetch(`https://jsonplaceholder.typicode.com/todos/${payload}`)
             .then(response => response.json())
             .then(({ title }) => title)
             .then(Success)
@@ -75,7 +76,8 @@ function update(state: State = null, action: Action) : [ State, Command ] | [ St
     case 'Fetch':
       return [
         state,
-        () => fetch(`https://jsonplaceholder.typicode.com/todos/${payload}`)
+        () =>
+          fetch(`https://jsonplaceholder.typicode.com/todos/${payload}`)
             .then(response => response.json())
             .then(({ title }) => title)
             .then(Success)
