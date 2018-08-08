@@ -41,7 +41,7 @@ function update(state, action) {
        return [ { error: payload } ]
       
     default:
-      return  [ state ]
+      return [ state ]
   }
 }
 ```
@@ -91,7 +91,7 @@ function update(state: State = null, action: Action) : [ State, Command ] | [ St
        return [ { error: payload } ]
       
     default:
-      return  [ state ]
+      return [ state ]
   }
 }
 ```
@@ -114,5 +114,6 @@ const Viewer = ({ state, Fetch }) => (
 - [redux-loop](https://github.com/redux-loop/redux-loop)
 - [redux-observable](https://redux-observable.js.org/)
 - [redux-saga](https://github.com/redux-saga/redux-saga)
+- [redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware)
 - [redux-thunk](https://github.com/reduxjs/redux-thunk)
 - [react-redux-typescript-guide](https://github.com/piotrwitek/react-redux-typescript-guide)
