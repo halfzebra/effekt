@@ -81,7 +81,7 @@ function update(state: State = null, action: Action) : [ State, Command ] | [ St
             .then(response => response.json())
             .then(({ title }) => title)
             .then(Success)
-            .catch(({ message}) => Fail(message))
+            .catch(({ message }) => Fail(message))
       ];
       
     case 'Success':
