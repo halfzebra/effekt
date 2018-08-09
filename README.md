@@ -120,7 +120,7 @@ const Viewer = ({ state, Fetch }) => (
 ```
 
 ## Acknowledgements
-
+- [The Elm Architecture](https://guide.elm-lang.org/architecture/)
 - [redux-loop](https://github.com/redux-loop/redux-loop)
 - [redux-observable](https://redux-observable.js.org/)
 - [redux-saga](https://github.com/redux-saga/redux-saga)
