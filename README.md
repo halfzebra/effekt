@@ -17,7 +17,7 @@ Command is a function that accepts state and returns a Promise of some asynchron
 Update is a reducer that returns a JavaScript array with two items, first representing the next State and the second being the Command.
 
 ```typescript
-function update<T, S>(state: S, action: T): [ S, S => Promise<Action<T>>] | [  S ]
+function update<S, A>(state: S, action: A): [ S, S => Promise<A> ] | [  S ]
 ```
 
 ## Usage
