@@ -1,4 +1,4 @@
-# ➰ effekt
+# ➰ effekt [![Build Status](https://travis-ci.org/halfzebra/effekt.svg?branch=master)](https://travis-ci.org/halfzebra/effekt)
 
 [Redux](https://redux.js.org/) enhancer for state-driven I/O.
 
