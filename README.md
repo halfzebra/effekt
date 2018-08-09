@@ -4,7 +4,9 @@
 
 ## Motivation
 
-This library is created for those, who find the existing solutions for I/O in Redux ecosystem are too heavy or too cluttered with unnecessary abstractions.
+_effect_ is an attempt to combine the simplicity of [redux-thunk](https://github.com/reduxjs/redux-thunk) with potential of [redux-saga](https://github.com/redux-saga/redux-saga).
+
+Created for those, who find the existing solutions for I/O in Redux ecosystem are too heavy or too cluttered with unnecessary abstractions.
 
 It leverages the core JavaScript Data Structures and starndard language features and tailored to be used with [TypeScript](#typescript)(but it's not a hard requirement).
 
