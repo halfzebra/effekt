@@ -1,4 +1,4 @@
-import { StoreCreator } from 'redux';
+import { StoreCreator, AnyAction } from 'redux';
 
 function log(exp: any) {
   console.log(exp);
@@ -50,14 +50,14 @@ export function enhancer(createStore: StoreCreator) {
                   throw new Error('Command should be a Function')
                 }
 
-                promise = command()
+                promise = command(s)
 
                 if (!isPromise(promise)) {
                   throw new Error('Command should return a Promise')
                 }
 
                 promise
-                  .then((maybeAction: any) => {
+                  .then((maybeAction: AnyAction) => {
                     if (typeof maybeAction.type === 'undefined') {
                       throw new Error(
                         'Actions may not have an undefined "type" property. ' +
@@ -67,7 +67,7 @@ export function enhancer(createStore: StoreCreator) {
 
                     store.dispatch(maybeAction);
                   })
-                  .catch((maybeErrorAction: any) => {
+                  .catch((maybeErrorAction: AnyAction) => {
                     if (typeof maybeErrorAction.type === 'undefined') {
                       throw new Error(
                         'Actions may not have an undefined "type" property. ' +
