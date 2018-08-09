@@ -1,4 +1,4 @@
-import { StoreCreator, AnyAction } from 'redux';
+import { StoreCreator, AnyAction, Action } from 'redux';
 
 function log(exp: any) {
   console.log(exp);
@@ -46,6 +46,7 @@ export function enhancer(createStore: StoreCreator) {
                 [state, command] = nextStateWithCommands[key];
                 nextState[key] = state;
 
+                // TODO: perhaps this has to be aggregated and executed outside of the loop.
                 if (typeof command !== 'function') {
                   throw new Error('Command should be a Function')
                 }

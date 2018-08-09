@@ -1,5 +1,5 @@
 import { enhancer } from './enhancer';
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, AnyAction } from 'redux';
 
 const action = (type: string) => ({ type });
 
@@ -11,7 +11,7 @@ const transitions = {
   'Action E': () => [ 'State E', () => `I'm a string` ],
 }
 
-function update(state = null, { type }) {
+function update(state = null, { type }: AnyAction) {
   return transitions[type] ? transitions[type]() : state;
 }
 
