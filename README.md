@@ -4,11 +4,11 @@
 
 ## Motivation
 
-_effect_ is an attempt to combine the simplicity of [redux-thunk](https://github.com/reduxjs/redux-thunk) with potential of [redux-saga](https://github.com/redux-saga/redux-saga).
+_effect_ is an attempt to combine the simplicity of [redux-thunk](https://github.com/reduxjs/redux-thunk) with the potential of [redux-saga](https://github.com/redux-saga/redux-saga).
 
-Created for those, who find the existing solutions for I/O in Redux ecosystem are too heavy or too cluttered with unnecessary abstractions.
+Created for those, who find the existing solutions for I/O in Redux ecosystem are too dense or too cluttered with unnecessary abstractions.
 
-It leverages the core JavaScript Data Structures and starndard language features and tailored to be used with [TypeScript](#typescript)(but it's not a hard requirement).
+It leverages the core JavaScript Data Structures and standard language features while tailored to be used with [TypeScript](#typescript)(but it's not a hard requirement).
 
 ## Glossary
 
@@ -122,6 +122,7 @@ const Viewer = ({ state, Fetch }) => (
 ```
 
 ## Acknowledgements
+
 - [The Elm Architecture](https://guide.elm-lang.org/architecture/)
 - [redux-loop](https://github.com/redux-loop/redux-loop)
 - [redux-observable](https://redux-observable.js.org/)
