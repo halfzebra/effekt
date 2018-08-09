@@ -8,6 +8,16 @@ This library is created for those, who find the existing solutions for I/O in Re
 
 It leverages the core JavaScript Data Structures and starndard language features and tailored to be used with [TypeScript](#typescript)(but it's not a hard requirement).
 
+## Glossary
+
+Command is a function that accepts state and returns a Promise of some asynchronous computation that resolves into an Action.
+
+Update is a reducer that returns a JavaScript array with two items, first representing the next State and the second being the Command.
+
+```
+
+```
+
 ## Usage
 
 ### JavaScript
@@ -67,7 +77,7 @@ const Fail = (payload: string): Fail => ({ type: 'Fail', payload })
 // State machine definition.
 type State = { error: string } | { title: string } | null;
 
-type Command = () => Promise<Fail | Success>
+type Command = () => Promise<Success | Fail>
 
 // Update function that combines the traditional reducer and asynchronous command.
 function update(state: State = null, action: Action) : [ State, Command ] | [ State ] {
