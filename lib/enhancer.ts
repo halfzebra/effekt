@@ -28,6 +28,10 @@ export default function isPlainObject(obj: any) {
   return Object.getPrototypeOf(obj) === proto
 }
 
+function isFunction(fun: any) {
+  return typeof fun === 'function';
+}
+
 export function enhancer(createStore: StoreCreator) {
     return function(reducer: any, preloadedState: any) {
       const store = createStore((s, a) => {
